@@ -1,0 +1,11 @@
+# Real Estate Deal Screener & Negotiation Copilot Environment Variables
+# Copy this file to .env and fill in your actual values
+
+# OpenAI API Key (optional - app works with mock data without this)
+# Get your API key from: https://platform.openai.com/api-keys
+OPENAI_API_KEY=your_openai_api_key_here
+
+# Optional: Customize default settings
+# DEFAULT_CITY=Austin
+# DEFAULT_MAX_PRICE=500000
+# DEFAULT_PROPERTY_TYPE=Single Family 
