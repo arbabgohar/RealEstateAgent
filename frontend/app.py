@@ -16,7 +16,7 @@ API_BASE_URL = "http://localhost:8000"
 
 def main():
     st.set_page_config(
-        page_title="Real Estate Deal Screener & Negotiation Copilot",
+        page_title="Real Estate Agent",
         page_icon="🏠",
         layout="wide",
         initial_sidebar_state="expanded"
