@@ -1,5 +1,5 @@
 This is in .txt format because i am not using OpenAI key i have built this on mock data, because to get Real Estate APIs you need to have real estate License.
-But inserting a key here, would give user calculations, calculated by gpt-4.
+But inserting a key here, would then would let this codebase work on real data. 
 # Copy this file to .env and fill in your actual values
 
 OPENAI_API_KEY=your_openai_api_key_here
