@@ -91,7 +91,7 @@ def test_calculations():
 
 def test_agents():
     """Test that agents can be initialized and basic functions work."""
-    print("\n🤖 Testing agents...")
+    print("\nTesting agents...")
     
     try:
         from agents.market_analyst import MarketAnalystAgent

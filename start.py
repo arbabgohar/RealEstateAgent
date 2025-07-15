@@ -157,7 +157,7 @@ def main():
             frontend_process.terminate()
     
     elif choice == "4":
-        print("👋 Goodbye!")
+        print("Goodbye!")
     
     else:
         print("❌ Invalid choice. Please enter 1-4.")
