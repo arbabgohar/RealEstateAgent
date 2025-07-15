@@ -19,20 +19,20 @@ def check_dependencies():
         import crewai
         import openai
         import plotly
-        print("✅ All dependencies are installed")
+        print("All dependencies are installed")
         return True
     except ImportError as e:
-        print(f"❌ Missing dependency: {e}")
+        print(f" Missing dependency: {e}")
         print("Please run: pip install -r requirements.txt")
         return False
 
 def start_backend():
     """Start the FastAPI backend server."""
-    print("🚀 Starting FastAPI backend...")
+    print("Starting FastAPI backend...")
     
     backend_path = Path("backend")
     if not backend_path.exists():
-        print("❌ Backend directory not found")
+        print("Backend directory not found")
         return False
     
     try:
@@ -45,21 +45,21 @@ def start_backend():
             "--reload"
         ], cwd=".")
         
-        print("✅ Backend server started at http://localhost:8000")
-        print("📚 API documentation available at http://localhost:8000/docs")
+        print("Backend server started at http://localhost:8000")
+        print("API documentation available at http://localhost:8000/docs")
         
         return process
     except Exception as e:
-        print(f"❌ Error starting backend: {e}")
+        print(f"Error starting backend: {e}")
         return False
 
 def start_frontend():
     """Start the Streamlit frontend."""
-    print("🎨 Starting Streamlit frontend...")
+    print("Starting Streamlit frontend...")
     
     frontend_path = Path("frontend")
     if not frontend_path.exists():
-        print("❌ Frontend directory not found")
+        print("Frontend directory not found")
         return False
     
     try:
@@ -71,7 +71,7 @@ def start_frontend():
             "--server.address", "localhost"
         ], cwd=".")
         
-        print("✅ Frontend server started at http://localhost:8501")
+        print("Frontend server started at http://localhost:8501")
         
         # Open browser after a short delay
         time.sleep(3)
@@ -79,12 +79,12 @@ def start_frontend():
         
         return process
     except Exception as e:
-        print(f"❌ Error starting frontend: {e}")
+        print(f"Error starting frontend: {e}")
         return False
 
 def main():
     """Main function to start the application."""
-    print("🏠 Real Estate Deal Screener & Negotiation Copilot")
+    print("Real Estate Deal Screener & Negotiation Copilot")
     print("=" * 50)
     
     # Check dependencies
@@ -93,10 +93,10 @@ def main():
     
     # Check for environment variables
     if not os.getenv("OPENAI_API_KEY"):
-        print("⚠️  Warning: OPENAI_API_KEY not set")
-        print("   Create a .env file with your OpenAI API key:")
-        print("   OPENAI_API_KEY=your_api_key_here")
-        print("   The app will work with mock data without the API key")
+        print("Warning: OPENAI_API_KEY not set")
+        print("Create a .env file with your OpenAI API key:")
+        print("OPENAI_API_KEY=your_api_key_here")
+        print("The app will work with mock data without the API key")
     
     print("\nChoose an option:")
     print("1. Start Backend Only")
@@ -110,24 +110,24 @@ def main():
         process = start_backend()
         if process:
             try:
-                print("\n🔄 Backend running... Press Ctrl+C to stop")
+                print("\nBackend running... Press Ctrl+C to stop")
                 process.wait()
             except KeyboardInterrupt:
-                print("\n🛑 Stopping backend...")
+                print("\nStopping backend...")
                 process.terminate()
     
     elif choice == "2":
         process = start_frontend()
         if process:
             try:
-                print("\n🔄 Frontend running... Press Ctrl+C to stop")
+                print("\nFrontend running... Press Ctrl+C to stop")
                 process.wait()
             except KeyboardInterrupt:
-                print("\n🛑 Stopping frontend...")
+                print("\nStopping frontend...")
                 process.terminate()
     
     elif choice == "3":
-        print("\n🚀 Starting both backend and frontend...")
+        print("\nStarting both backend and frontend...")
         
         backend_process = start_backend()
         if not backend_process:
@@ -142,17 +142,17 @@ def main():
             return
         
         try:
-            print("\n🔄 Both servers running... Press Ctrl+C to stop")
-            print("📱 Frontend: http://localhost:8501")
-            print("🔧 Backend: http://localhost:8000")
-            print("📚 API Docs: http://localhost:8000/docs")
+            print("\nBoth servers running... Press Ctrl+C to stop")
+            print("Frontend: http://localhost:8501")
+            print("Backend: http://localhost:8000")
+            print("API Docs: http://localhost:8000/docs")
             
             # Wait for either process to finish
             while backend_process.poll() is None and frontend_process.poll() is None:
                 time.sleep(1)
                 
         except KeyboardInterrupt:
-            print("\n🛑 Stopping servers...")
+            print("\nStopping servers...")
             backend_process.terminate()
             frontend_process.terminate()
     
@@ -160,7 +160,7 @@ def main():
         print("Goodbye!")
     
     else:
-        print("❌ Invalid choice. Please enter 1-4.")
+        print("Invalid choice. Please enter 1-4.")
 
 if __name__ == "__main__":
     main() 
